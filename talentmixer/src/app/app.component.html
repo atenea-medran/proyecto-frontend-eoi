@@ -1,7 +1,7 @@
 <div class="container">
   <div class="col-12">
     <nav id="navbar" class="navbar navbar-expand-md gradient-custom justify-content-between">
-      <a href=""><img src="assets/logo.png" alt="Logo"></a>
+      <a [routerLink]="['/projects']" [routerLinkActive]="['active']"><img src="assets/logo.png" alt="Logo"></a>
       <div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
           aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,14 +23,9 @@
               </div>
             </li>
           </ul>
-          <form class="form-inline">
-            <input id="search" class="form-control mr-md-2" type="text" [(ngModel)]="search" name="search"
-              placeholder="Buscar en Talentmixer" aria-label="Search">
-          </form>
         </div>
       </div>
     </nav>
-
-    <project-list [search]="search"></project-list>
+    <router-outlet></router-outlet>
   </div>
 </div>

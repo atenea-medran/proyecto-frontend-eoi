@@ -1,6 +1,5 @@
 .navbar {
   margin-top: 10px;
-  /* background-color: #e1faff; */
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 0.5rem;
@@ -18,8 +17,4 @@
     rgba(255, 255, 255, 0.9),
     rgba(127, 174, 255, 0.9)
   );
-}
-
-#search {
-  width: 250px;
 }

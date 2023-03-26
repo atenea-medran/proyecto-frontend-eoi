@@ -11,7 +11,7 @@ import { ProjectsService } from '../services/projects.service';
 export class ProjectCardComponent {
   @Input() project!:IProject;
 
-  @Output() deleteProjectEmitter=new EventEmitter<void>();
+  @Output() projectDeleted =new EventEmitter<any>();
 
 
   projects: IProject[] = [];
@@ -22,10 +22,9 @@ export class ProjectCardComponent {
     this.projectsService.deleteProject(<number>this.project.id).subscribe({
       next:deleted=>{
         console.log("Filas eliminadas:" + deleted);
-        this.deleteProjectEmitter.emit();
+        this.projectDeleted.emit(this.project);
       },
       error:error=>console.log(error)
     });
-    location.reload();
   }
 }

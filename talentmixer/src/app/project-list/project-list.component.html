@@ -1,16 +1,22 @@
-<nav class="navbar navbar-light bg-light justify-content-between mt-2 mb-2">
+<nav class="navbar navbar-light bg-light mt-2 mb-2 d-flex justify-content-between align-items-center">
   <ul class="nav nav-pills">
     <li class="nav-item">
-      <a class="nav-link" href="#" (click)="orderDate()">Orden por fecha</a>
+      <a class="nav-link" href="javascript:void(0)" (click)="orderDate()">Orden por fecha</a>
     </li>
-    <li class="nav-item">
-    </li>
+    <form class="form-inline">
+      <input id="search" class="form-control mr-md-2" type="text" [(ngModel)]="search" name="search"
+        placeholder="Buscar proyectos" aria-label="Search">
+    </form>
   </ul>
+  <div>
+    <a class="nav-link" [routerLink]="['/new']" [routerLinkActive]="['active']"><button id="new"
+        class="btn btn-info">Nuevo proyecto</button></a>
+  </div>
 </nav>
 
 <div class="row" *ngIf="projects && projects.length; else noProjects">
-  <project-card id="card" class="col-12" *ngFor="let project of projects|projectFilter:search" [project]="project"
-    (borrarEvento)="deleteCard(project)">
+  <project-card class="col-12" *ngFor="let project of projects|projectFilter:search" [project]="project"
+    (projectDeleted)="deleteCard(project)">
   </project-card>
 </div>
 <ng-template #noProjects>

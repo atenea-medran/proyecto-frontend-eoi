@@ -25,7 +25,7 @@ export class ProjectListComponent implements OnInit {
     );
   }
 
-  @Input() search: string = "";
+ search = "";
 
 
   orderDate() {
@@ -33,8 +33,8 @@ export class ProjectListComponent implements OnInit {
     this.projects.sort((project1,project2)=>project2.createdAt.getTime()-project1.createdAt.getTime());
   }
 
-  deleteCard(project:IProject) {
-    this.projects=this.projects.filter(pr=>pr!=project);
+  deleteCard(deletedProject:IProject) {
+    this.projects = this.projects.filter(project=>project!=deletedProject);
   }
 
 }

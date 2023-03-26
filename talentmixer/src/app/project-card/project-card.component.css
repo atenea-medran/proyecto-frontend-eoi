@@ -6,3 +6,8 @@
 .card {
   margin-bottom: 0.5rem;
 }
+
+.card-footer {
+  display: flex;
+  align-items: center;
+}

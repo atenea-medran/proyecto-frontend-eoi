@@ -1,7 +1,21 @@
 .navbar {
   border-radius: 0.5rem;
+  vertical-align: center;
 }
 
-.card-footer {
-  display: grid;
+.navbar .nav {
+  align-items: center;
+}
+
+#new {
+  background-color: rgba(199, 219, 255, 0.9)
+
+}
+
+.navbar div {
+  margin-right: 1rem;
+}
+
+h3 {
+  text-align: center;
 }

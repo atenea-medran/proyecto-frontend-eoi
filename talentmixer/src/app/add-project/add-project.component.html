@@ -1,0 +1,24 @@
+<div class="card col-12 mt-4" *ngIf="successVisible">
+  <p>Proyecto creado con éxito</p>
+</div>
+
+<form class="mt-4" (ngSubmit)="addProject()">
+  <div class="form-group mb-2">
+    <label for="name">Título</label>
+    <input type="text" class="form-control" name="title" [(ngModel)]="newProject.tittle" placeholder="Introduzca el título">
+  </div>
+  <div class="form-group mb-2">
+    <label for="summary">Resumen</label>
+    <input type="text" class="form-control" name="summary" [(ngModel)]="newProject.summary">
+  </div>
+  <div class="form-group mb-2">
+    <label for="description">Descripción</label>
+    <textarea class="form-control" name="description" rows="3" [(ngModel)]="newProject.description"></textarea>
+  </div>
+  <div class="form-group mb-2">
+    <label for="image">Imagen</label>
+    <input [(ngModel)]="newProject.image" type="file" class="form-control" name="image" #fileImage (change)="changeImage(fileImage)">
+  </div>
+  <img [src]="newProject.image" alt="" class="img-thumbnail">
+  <button type="submit" class="btn btn-primary">Create</button>
+</form>

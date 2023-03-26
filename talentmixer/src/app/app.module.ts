@@ -9,18 +9,24 @@ import { ProjectsService } from './services/projects.service';
 import { ProjectFilterPipe } from './pipes/project-filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { BaseUrlInterceptor } from './interceptors/base-url.interceptor';
+import { AddProjectComponent } from './add-project/add-project.component';
+import { RouterModule } from '@angular/router';
+import { APP_ROUTES } from './app.routes';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectListComponent,
     ProjectCardComponent,
-    ProjectFilterPipe
+    ProjectFilterPipe,
+    AddProjectComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [ProjectsService,
     {
