@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">{{project.tittle}}</h4>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{project.summary|titlecase}}</p>
+    <p class="card-text">{{project.description|titlecase}}</p>
+  </div>
+  <div class="card-footer text-muted">
+      {{project.createdAt|date:"dd/MM/y"}}
+      <button class="btn btn-danger ml-3 float-left" (click)="deleteCard()">Delete</button>
+  </div>
+</div>

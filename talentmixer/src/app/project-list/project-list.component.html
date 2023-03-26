@@ -1,0 +1,18 @@
+<nav class="navbar navbar-light bg-light justify-content-between mt-2 mb-2">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link" href="#" (click)="orderDate()">Orden por fecha</a>
+    </li>
+    <li class="nav-item">
+    </li>
+  </ul>
+</nav>
+
+<div class="row" *ngIf="projects && projects.length; else noProjects">
+  <project-card id="card" class="col-12" *ngFor="let project of projects|projectFilter:search" [project]="project"
+    (borrarEvento)="deleteCard(project)">
+  </project-card>
+</div>
+<ng-template #noProjects>
+  <h3>No hay proyectos disponibles</h3>
+</ng-template>
