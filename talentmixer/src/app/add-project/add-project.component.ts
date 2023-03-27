@@ -9,7 +9,7 @@ import { ProjectsService } from '../services/projects.service';
 })
 export class AddProjectComponent implements OnInit {
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.instantiateProject();
   }
 

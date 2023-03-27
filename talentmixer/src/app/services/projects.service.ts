@@ -12,25 +12,25 @@ export class ProjectsService {
   constructor(private http: HttpClient) { }
 
   getProjects():Observable<IProject[]> {
-    return this.http.get<IProject[]>(this.URL)
-    .pipe(map(response=>response));
+    return this.http.get<IProject[]>(this.URL);
   }
 
   getProject(idProject:number):Observable<IProject>{
-    return this.http.get<IProject>(this.URL+"/"+idProject)
-    .pipe(map(response=>response));
+    return this.http.get<IProject>(this.URL+"/"+idProject);
   }
 
   addProject(project:IProject):Observable<IProject>{
-    return this.http.post<IProject>(this.URL,project).pipe(
-      map(response=>{return response;}));
+    return this.http.post<IProject>(this.URL,project);
   }
 
-  deleteProject(idEvento:number):Observable<number>{
-    return this.http.delete<{evento:number}>(this.URL+"/"+idEvento).pipe(
-      map(response=>response.evento)
+  editProject(project:IProject):Observable<IProject> {
+    return this.http.put<IProject>(this.URL+"/"+project.id,project);
+  }
+
+  deleteProject(idProject:number):Observable<number>{
+    return this.http.delete<{project:number}>(this.URL+"/"+idProject).pipe(
+      map(response=>response.project)
     );
   }
 
-  // editProject(idEvento:number)
 }
