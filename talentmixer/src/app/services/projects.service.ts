@@ -16,6 +16,11 @@ export class ProjectsService {
     .pipe(map(response=>response));
   }
 
+  getProject(idProject:number):Observable<IProject>{
+    return this.http.get<IProject>(this.URL+"/"+idProject)
+    .pipe(map(response=>response));
+  }
+
   addProject(project:IProject):Observable<IProject>{
     return this.http.post<IProject>(this.URL,project).pipe(
       map(response=>{return response;}));

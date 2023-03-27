@@ -12,6 +12,9 @@ import { BaseUrlInterceptor } from './interceptors/base-url.interceptor';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { LoginComponent } from './login/login.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { APP_ROUTES } from './app.routes';
     ProjectCardComponent,
     ProjectFilterPipe,
     AddProjectComponent,
+    ProjectDetailComponent,
+    LoginComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

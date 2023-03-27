@@ -4,5 +4,5 @@ export interface IProject {
   summary: string;
   description: string;
   createdAt: Date;
-  image: string;
+  image?: string;
 }

@@ -30,7 +30,7 @@ export class ProjectListComponent implements OnInit {
 
   orderDate() {
     this.search="";
-    this.projects.sort((project1,project2)=>project2.createdAt.getTime()-project1.createdAt.getTime());
+    this.projects.sort((project1,project2)=>project1.createdAt.getTime()-project2.createdAt.getTime());
   }
 
   deleteCard(deletedProject:IProject) {

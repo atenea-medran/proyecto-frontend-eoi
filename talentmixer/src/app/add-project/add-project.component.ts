@@ -21,7 +21,7 @@ export class AddProjectComponent implements OnInit {
       summary: "",
       description: "",
       createdAt: new Date(),
-      image: ""
+      image: undefined
     };
   }
 

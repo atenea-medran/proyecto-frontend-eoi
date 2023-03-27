@@ -1,13 +1,18 @@
-<div class="card">
-  <div class="card-header">
-    <h4 class="card-title">{{project.tittle}}</h4>
-  </div>
-  <div class="card-body">
-    <p class="card-text">{{project.summary|titlecase}}</p>
-    <p class="card-text">{{project.description|titlecase}}</p>
-  </div>
-  <div class="card-footer text-muted justify-content-between">
+<a [routerLink]="['/projects', project.id]">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title">{{project.tittle}}</h4>
+    </div>
+    <div class="card-body">
+      <img *ngIf="project.image == undefined" class="img-thumbnail" src="assets/default.png" alt="project_image">
+      <img *ngIf="project.image != undefined" class="img-thumbnail" [src]="project.image" alt="project_image">
+      <div>
+        <p class="card-text">{{project.summary}}</p>
+      </div>
+    </div>
+    <div class="card-footer text-muted justify-content-between">
       {{project.createdAt|date:"dd/MM/y"}}
-      <button class="btn btn-danger ml-3 float-left" (click)="deleteCard()">Delete</button>
+      <button class="btn btn-danger ml-3" (click)="deleteCard()">Delete</button>
+    </div>
   </div>
-</div>
+</a>

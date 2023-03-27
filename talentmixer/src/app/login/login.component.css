@@ -1,0 +1,8 @@
+.floating-component {
+  position: fixed; /* or absolute */
+  top: 50%; /* adjust as needed */
+  left: 50%; /* adjust as needed */
+  transform: translate(-50%, -50%);
+  z-index: 9999; /* adjust as needed */
+  /* add other styles as needed */
+}

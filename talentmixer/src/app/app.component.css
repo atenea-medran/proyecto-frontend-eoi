@@ -1,8 +1,11 @@
 .navbar {
   margin-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-bottom: 10px;
+  padding-left: 1rem;
+  padding-right: 1rem;
   border-radius: 0.5rem;
+  font-size: 18px;
+  font-weight: 700;
 
   /* Chrome 10-25, Safari 5.1-6 */
   background: -webkit-linear-gradient(

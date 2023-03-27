@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Talentmixer';
   search = "";
+
+  loginVisible = false;
+  showLogging() {
+    this.loginVisible = true;
+  }
 }

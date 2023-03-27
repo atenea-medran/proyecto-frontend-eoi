@@ -1,21 +1,23 @@
-<nav class="navbar navbar-light bg-light mt-2 mb-2 d-flex justify-content-between align-items-center">
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a class="nav-link" href="javascript:void(0)" (click)="orderDate()">Orden por fecha</a>
-    </li>
-    <form class="form-inline">
-      <input id="search" class="form-control mr-md-2" type="text" [(ngModel)]="search" name="search"
-        placeholder="Buscar proyectos" aria-label="Search">
-    </form>
-  </ul>
-  <div>
-    <a class="nav-link" [routerLink]="['/new']" [routerLinkActive]="['active']"><button id="new"
-        class="btn btn-info">Nuevo proyecto</button></a>
-  </div>
-</nav>
+<div class="row justify-content-center">
+  <nav class="navbar col-10 navbar-light bg-light mb-2 d-flex justify-content-between align-items-center">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0)" (click)="orderDate()">Orden por más antiguos</a>
+      </li>
+      <form class="form-inline">
+        <input id="search" class="form-control mr-md-2" type="text" [(ngModel)]="search" name="search"
+          placeholder="Buscar proyectos" aria-label="Search">
+      </form>
+    </ul>
+    <div id="buttonDiv" class="button-container">
+      <a class="nav-link" [routerLink]="['/new']" [routerLinkActive]="['active']"><button id="new"
+          class="btn btn-info">Nuevo proyecto</button></a>
+    </div>
+  </nav>
+</div>
 
-<div class="row" *ngIf="projects && projects.length; else noProjects">
-  <project-card class="col-12" *ngFor="let project of projects|projectFilter:search" [project]="project"
+<div class="row justify-content-center" *ngIf="projects && projects.length; else noProjects">
+  <project-card class="col-10" *ngFor="let project of projects|projectFilter:search" [project]="project"
     (projectDeleted)="deleteCard(project)">
   </project-card>
 </div>
