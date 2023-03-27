@@ -4,5 +4,8 @@
   <p class="card-text">{{project.description|titlecase}}</p>
   <p>Fecha de creación: {{project.createdAt|date:"dd/MM/y"}}</p>
   <img *ngIf="project.image != undefined" [src]="project.image" alt="project_image">
-  <button class="btn btn-danger ml-3 float-right" (click)="deleteCard()">Delete</button>
+  <div class="row justify-content-end">
+    <button id="edit" class="btn ml-3 float-right" (click)="editCard()">Edit</button>
+    <button class="btn btn-danger ml-15 float-right" (click)="deleteCard()">Delete</button>
+  </div>
 </div>

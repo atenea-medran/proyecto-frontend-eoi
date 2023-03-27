@@ -14,3 +14,8 @@ img {
   width: 100px;
   align-self: end;
 }
+
+#edit {
+  background-color: rgb(233, 248, 122);
+  margin-right: 0.5rem;
+}

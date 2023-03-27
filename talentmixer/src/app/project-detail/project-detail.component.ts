@@ -25,7 +25,7 @@ export class ProjectDetailComponent implements OnInit {
     );
   }
 
-  @Output() projectDeleted =new EventEmitter<any>();
+  @Output() projectDeleted = new EventEmitter<any>();
 
   deleteCard(){
     this.projectsService.deleteProject(<number>this.project.id).subscribe({
@@ -36,6 +36,10 @@ export class ProjectDetailComponent implements OnInit {
       error:error=>console.log(error)
     });
     this.goBack();
+  }
+
+  editCard() {
+
   }
 
   goBack(){

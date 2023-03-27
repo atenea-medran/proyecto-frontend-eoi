@@ -1,0 +1,35 @@
+<!-- <div class="row justify-content-center">
+  <div class="card col-8 mt-4" *ngIf="successVisible">
+    <p>Proyecto creado con éxito</p>
+  </div>
+
+  <form class="col-10 col-xl-6 mt-4" (ngSubmit)="addProject()">
+    <div class="form-group mb-2">
+      <label for="name">Título</label>
+      <input type="text" class="form-control" name="title" [(ngModel)]="newProject.tittle"
+        placeholder="Introduzca el título">
+    </div>
+    <div class="form-group mb-2">
+      <label for="summary">Resumen</label>
+      <input type="text" class="form-control" name="summary" [(ngModel)]="newProject.summary">
+    </div>
+    <div class="form-group mb-2">
+      <label for="description">Descripción</label>
+      <textarea class="form-control" name="description" rows="3" [(ngModel)]="newProject.description"></textarea>
+    </div>
+    <div class="form-group mb-2">
+      <label for="image">Imagen</label>
+      <input [(ngModel)]="newProject.image" type="file" class="form-control" name="image" #fileImage
+        (change)="changeImage(fileImage)">
+    </div>
+    <div class="row justify-content-between">
+      <div class="col-4">
+        <img *ngIf="newProject.image == undefined" src="assets/default.png" alt="" class="img-thumbnail">
+        <img *ngIf [src]="newProject.image" alt="" class="img-thumbnail">
+      </div>
+      <div class="col-3">
+        <button type="submit" class="btn btn-lg btn-primary">Edit</button>
+      </div>
+    </div>
+  </form>
+</div> -->
