@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import globalBus from "./global.js";
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Talentmixer';
   search = "";
+
+  ngOnInit() {
+    console.log("Main app iniciando");
+    (<any>window).mainApp = this;
+  }
 
   loginVisible = false;
   showLogging() {

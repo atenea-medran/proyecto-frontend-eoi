@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" *ngIf="project">
   <h1 class="card-title">{{project.title}}</h1>
   <p class="card-text">{{project.summary|titlecase}}</p>
   <p class="card-text">{{project.description|titlecase}}</p>

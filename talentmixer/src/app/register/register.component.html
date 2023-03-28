@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header text-black">
+          <h3 class="card-title">Registro</h3>
+        </div>
+        <div class="card-body">
+          <form ng-submit="register()">
+            <div class="mb-2">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" name="username" ng-model="user.name" required>
+            </div>
+            <div class="mb-2">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" ng-model="user.email" required>
+            </div>
+            <div class="mb-2">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" ng-model="user.password" required>
+            </div>
+            <div class="mb-2">
+              <label for="confirmPassword" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="confirmPassword" ng-model="user.confirmPassword" required>
+            </div>
+            <div class="mb-2">
+              <label for="name" class="form-label">Nombre</label>
+              <input type="text" class="form-control" name="name" ng-model="user.name" required>
+            </div>            <div class="mb-2">
+              <label for="surname" class="form-label">Apellido</label>
+              <input type="text" class="form-control" name="surname" ng-model="user.name" required>
+            </div>
+            <div class="mb-2">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="terms" ng-model="user.terms" required>
+                <label class="form-check-label" for="terms">
+                  Estoy de acuerdo con los  <a [routerLink]="['/about']" [routerLinkActive]="['active']">términos y condiciones</a>
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" ng-disabled="!user.terms">Registrarse</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

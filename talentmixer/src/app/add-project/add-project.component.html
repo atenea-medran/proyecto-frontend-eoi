@@ -1,35 +1,48 @@
-<div class="row justify-content-center">
-  <div class="card col-8 mt-4" *ngIf="successVisible">
-    <p>Proyecto creado con éxito</p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header text-black">
+          <h3 class="card-title">Nuevo proyecto</h3>
+        </div>
+        <div class="card-body">
+          <form ng-submit="register()">
+            <div id="success" class="mb-2" *ngIf="successVisible">
+              <p>Proyecto creado con éxito</p>
+            </div>
+            <div class="mb-2">
+              <label for="name" class="form-label">Título</label>
+              <input type="text" class="form-control" name="title" [(ngModel)]="newProject.title"
+                placeholder="Introduzca el título">
+            </div>
+            <div class="mb-2">
+              <label for="summary" class="form-label">Resumen</label>
+              <input type="text" class="form-control" name="summary" [(ngModel)]="newProject.summary">
+            </div>
+            <div class="mb-2">
+              <label for="description" class="form-label">Descripción</label>
+              <textarea class="form-control" name="description" rows="3"
+                [(ngModel)]="newProject.description"></textarea>
+            </div>
+            <div class="mb-2">
+              <label for="image" class="form-label">Imagen</label>
+              <input [(ngModel)]="newProject.image" type="file" class="form-control" name="image" #fileImage
+                (change)="changeImage(fileImage)">
+            </div>
+            <div class="row justify-content-between">
+              <div class="col-auto">
+                <div class="mb-2">
+                  <img *ngIf="newProject.image == undefined" src="assets/default.png" alt="Img" class="img-thumbnail">
+                  <img *ngIf="newProject.image != undefined" [src]="newProject.image" alt="Img" class="img-thumbnail">
+                </div>
+              </div>
+                <div class="col-auto">
+                  <button type="submit" class="btn btn-lg btn-primary">Create</button>
+                </div>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <form class="col-10 col-xl-6 mt-4" (ngSubmit)="addProject()">
-    <div class="form-group mb-2">
-      <label for="name">Título</label>
-      <input type="text" class="form-control" name="title" [(ngModel)]="newProject.title"
-        placeholder="Introduzca el título">
-    </div>
-    <div class="form-group mb-2">
-      <label for="summary">Resumen</label>
-      <input type="text" class="form-control" name="summary" [(ngModel)]="newProject.summary">
-    </div>
-    <div class="form-group mb-2">
-      <label for="description">Descripción</label>
-      <textarea class="form-control" name="description" rows="3" [(ngModel)]="newProject.description"></textarea>
-    </div>
-    <div class="form-group mb-2">
-      <label for="image">Imagen</label>
-      <input [(ngModel)]="newProject.image" type="file" class="form-control" name="image" #fileImage
-        (change)="changeImage(fileImage)">
-    </div>
-    <div class="row justify-content-between">
-      <div class="col-4">
-        <img *ngIf="newProject.image == undefined" src="assets/default.png" alt="Img" class="img-thumbnail">
-        <img *ngIf="newProject.image != undefined" [src]="newProject.image" alt="Img" class="img-thumbnail">
-      </div>
-      <div class="col-3">
-        <button type="submit" class="btn btn-lg btn-primary">Create</button>
-      </div>
-    </div>
-  </form>
 </div>

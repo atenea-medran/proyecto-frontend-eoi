@@ -6,3 +6,11 @@
   z-index: 9999; /* adjust as needed */
   /* add other styles as needed */
 }
+
+.card-header {
+  background-color: rgba(187, 212, 255, 0.9);
+}
+
+.card-title {
+  margin-bottom: 0px;
+}

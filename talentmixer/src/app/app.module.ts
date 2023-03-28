@@ -16,6 +16,7 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { EditProjectComponent } from './edit-project/edit-project.component';
     LoginComponent,
     AboutComponent,
     EditProjectComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
