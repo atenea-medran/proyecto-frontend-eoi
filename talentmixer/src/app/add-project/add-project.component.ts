@@ -21,7 +21,8 @@ export class AddProjectComponent implements OnInit {
       summary: "",
       description: "",
       createdAt: new Date(),
-      image: undefined
+      image: undefined,
+/* CUIDADOOOOOO */      idUserAccount: 1
     };
   }
 
@@ -41,6 +42,8 @@ export class AddProjectComponent implements OnInit {
 
   successVisible: boolean = false;
 
+
+// cambiar nombre
   changeImage(fileInput: HTMLInputElement) {
 
     if (!fileInput.files || fileInput.files.length === 0) {

@@ -22,7 +22,8 @@ export class EditProjectComponent implements OnInit {
       summary: "",
       description: "",
       createdAt: new Date(),
-      image: ""
+      image: undefined,
+      /* CUIDADOOOOOO */      idUserAccount: 1
     };
   }
 

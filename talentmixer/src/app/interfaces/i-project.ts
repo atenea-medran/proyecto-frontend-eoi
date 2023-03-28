@@ -5,4 +5,5 @@ export interface IProject {
   description: string;
   createdAt: Date;
   image?: string;
+  idUserAccount?: number;
 }

@@ -6,7 +6,7 @@
           <h3 class="card-title">Nuevo proyecto</h3>
         </div>
         <div class="card-body">
-          <form ng-submit="register()">
+          <form (ngSubmit)="addProject()">
             <div id="success" class="mb-2" *ngIf="successVisible">
               <p>Proyecto creado con éxito</p>
             </div>
