@@ -1,6 +1,6 @@
 export interface IProject {
   id?:number;
-  tittle: string;
+  title: string;
   summary: string;
   description: string;
   createdAt: Date;

@@ -17,7 +17,7 @@ export class AddProjectComponent implements OnInit {
 
   instantiateProject() {
     this.newProject = {
-      tittle:"",
+      title:"",
       summary: "",
       description: "",
       createdAt: new Date(),

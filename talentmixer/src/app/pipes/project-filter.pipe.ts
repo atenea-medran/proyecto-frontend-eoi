@@ -9,7 +9,7 @@ export class ProjectFilterPipe implements PipeTransform {
   transform(projectsArray: IProject[], search:string): IProject[] {
     if(search) {
       return projectsArray.filter(
-        project => project.tittle.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
+        project => project.title.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
                    project.description.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
                    project.summary.toLocaleLowerCase().includes(search.toLocaleLowerCase())
       );

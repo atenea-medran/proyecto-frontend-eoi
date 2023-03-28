@@ -18,7 +18,7 @@ export class EditProjectComponent implements OnInit {
 
   instantiateProject() {
     this.editedProject = {
-      tittle:"",
+      title:"",
       summary: "",
       description: "",
       createdAt: new Date(),
@@ -33,7 +33,7 @@ export class EditProjectComponent implements OnInit {
     const id = +this.route.snapshot.params['id'];
     this.projectsService.getProject(id).subscribe((project) => {
       this.editedProject = project;
-      this.editedProject.tittle = project.tittle;
+      this.editedProject.title = project.title;
       this.editedProject.summary = project.summary;
       this.editedProject.description = project.description;
       this.editedProject.image = undefined;
