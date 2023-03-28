@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs';
 import { IProject } from '../interfaces/i-project';
 
 @Injectable({
@@ -19,12 +19,23 @@ export class ProjectsService {
     return this.http.get<IProject>(this.URL+"/"+idProject);
   }
 
-  addProject(project:IProject):Observable<IProject>{
+  addProject(project:IProject):Observable<IProject> {
     return this.http.post<IProject>(this.URL,project);
   }
 
-  editProject(project:IProject):Observable<IProject> {
-    return this.http.put<IProject>(this.URL+"/"+project.id,project);
+  // updateProject(project:IProject):Observable<IProject> {
+  //   return this.http.put<IProject>(this.URL+"/"+project.id,project);
+  // }
+
+  updateProject(project:IProject):Observable<IProject>{
+    return this.http.put<{project:IProject,mensaje:string}>(this.URL+"/"+project.id,project).pipe(
+      map(response=>{
+        console.log(response.mensaje);
+        return response.project;
+      }),
+      catchError((respuesta:HttpErrorResponse)=>throwError(()=>
+      new Error("Error al insertar la imagen. Respuesta Server:"+respuesta.status+" "+respuesta.message+" "))
+      ));
   }
 
   deleteProject(idProject:number):Observable<number>{
@@ -32,5 +43,4 @@ export class ProjectsService {
       map(response=>response.project)
     );
   }
-
 }

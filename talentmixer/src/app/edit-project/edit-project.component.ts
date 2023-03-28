@@ -10,31 +10,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditProjectComponent implements OnInit {
 
-  projects: IProject[] = [];
-
   ngOnInit() {
-    console.log("ngOnInit");
-    this.projectsService.getProjects().subscribe(
-      projectsFromServer => {
-        this.projects = projectsFromServer.map(project => ({
-          ...project,
-          createdAt: new Date(project.createdAt)
-        }));
-
-        const projectId = +this.route.snapshot.params['id']
-        const existingProject = this.projects.find(p => p.id === projectId);
-
-        if (existingProject) {
-          this.instantiateProject(existingProject);
-        }
-      }
-    );
+    this.getProject();
   }
 
-  newProject!: IProject;
+  editedProject!: IProject;
 
-  instantiateEmptyProject() {
-    this.newProject = {
+  instantiateProject() {
+    this.editedProject = {
       tittle:"",
       summary: "",
       description: "",
@@ -43,27 +26,24 @@ export class EditProjectComponent implements OnInit {
     };
   }
 
-  instantiateProject(existingProject: IProject) {
-    this.newProject = {
-      tittle: existingProject.tittle,
-      summary: existingProject.summary,
-      description: existingProject.description,
-      createdAt: existingProject.createdAt,
-      image: existingProject.image
-    };
+  constructor(private projectsService:ProjectsService,
+    private route: ActivatedRoute) {}
+
+  getProject() {
+    const id = +this.route.snapshot.params['id'];
+    this.projectsService.getProject(id).subscribe((project) => {
+      this.editedProject = project;
+    });
   }
 
-  constructor(private projectsService: ProjectsService,private route: ActivatedRoute) {}
-
-  @Output() newProjectEmitted = new EventEmitter<IProject>();
-
-  editProject() {
-    this.projectsService.editProject(this.newProject).subscribe(
+  updateProject() {
+    console.log(this.editedProject)
+    this.projectsService.updateProject(this.editedProject).subscribe(
       project => {
-        this.newProjectEmitted.emit(project);
-        this.instantiateEmptyProject();
-      }
-    )
+        this.instantiateProject();
+        console.log(project)
+      })
+    this.successVisible = !this.successVisible;
   }
 
   successVisible: boolean = false;
@@ -81,7 +61,7 @@ export class EditProjectComponent implements OnInit {
         this.newEvent.image = reader.result.toString();
       else
       this.newEvent.image = "";*/
-      this.newProject.image = reader.result as string;
+      this.editedProject.image = reader.result as string;
     });
 
   }

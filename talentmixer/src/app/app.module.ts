@@ -15,7 +15,7 @@ import { APP_ROUTES } from './app.routes';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
-// import { EditProjectComponent } from './edit-project/edit-project.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { AboutComponent } from './about/about.component';
     ProjectDetailComponent,
     LoginComponent,
     AboutComponent,
-    // EditProjectComponent,
+    EditProjectComponent,
   ],
   imports: [
     BrowserModule,

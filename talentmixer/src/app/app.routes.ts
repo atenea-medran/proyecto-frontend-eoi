@@ -4,13 +4,14 @@ import { ProjectListComponent } from "./project-list/project-list.component";
 import { ProjectDetailComponent } from "./project-detail/project-detail.component";
 import { AboutComponent } from "./about/about.component";
 import { LoginComponent } from "./login/login.component";
+import { EditProjectComponent } from "./edit-project/edit-project.component";
 
 
-export const APP_ROUTES:Route[]=[
-  // { path: 'about', component: WelcomeComponent },
+export const APP_ROUTES:Route[] = [
   { path: 'projects', component: ProjectListComponent },
   { path: 'projects/:id', component: ProjectDetailComponent },
   { path: 'new', component: AddProjectComponent },
+  { path: 'edit/:id', component: EditProjectComponent },
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/projects', pathMatch: 'full' },

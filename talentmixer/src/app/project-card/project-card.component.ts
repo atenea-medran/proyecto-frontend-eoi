@@ -11,20 +11,15 @@ import { ProjectsService } from '../services/projects.service';
 export class ProjectCardComponent {
   @Input() project!:IProject;
 
-  @Output() projectDeleted =new EventEmitter<any>();
-
+  @Output() projectDeleted = new EventEmitter<any>();
 
   projects: IProject[] = [];
 
   constructor(private projectsService : ProjectsService) {}
 
-  deleteCard(){
-    this.projectsService.deleteProject(<number>this.project.id).subscribe({
-      next:deleted=>{
-        console.log("Filas eliminadas:" + deleted);
-        this.projectDeleted.emit(this.project);
-      },
-      error:error=>console.log(error)
-    });
+  deleteCard() {
+    this.projectsService.deleteProject(<number>this.project.id).subscribe(
+      () => { this.projectDeleted.emit(this.project);
+      });
   }
 }

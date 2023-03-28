@@ -24,8 +24,8 @@
     </div>
     <div class="row justify-content-between">
       <div class="col-4">
-        <img *ngIf="newProject.image == undefined" src="assets/default.png" alt="" class="img-thumbnail">
-        <img *ngIf [src]="newProject.image" alt="" class="img-thumbnail">
+        <img *ngIf="newProject.image == undefined" src="assets/default.png" alt="Img" class="img-thumbnail">
+        <img *ngIf="newProject.image != undefined" [src]="newProject.image" alt="Img" class="img-thumbnail">
       </div>
       <div class="col-3">
         <button type="submit" class="btn btn-lg btn-primary">Create</button>

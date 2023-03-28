@@ -3,29 +3,29 @@
     <p>Proyecto editado con éxito</p>
   </div>
 
-  <form class="col-10 col-xl-6 mt-4" (ngSubmit)="editProject()">
+  <form class="col-10 col-xl-6 mt-4" (ngSubmit)="updateProject()">
     <div class="form-group mb-2">
       <label for="name">Título</label>
-      <input type="text" class="form-control" name="title" [(ngModel)]="newProject.tittle"
+      <input type="text" class="form-control" name="title" [(ngModel)]="editedProject.tittle"
         placeholder="Introduzca el título">
     </div>
     <div class="form-group mb-2">
       <label for="summary">Resumen</label>
-      <input type="text" class="form-control" name="summary" [(ngModel)]="newProject.summary">
+      <input type="text" class="form-control" name="summary" [(ngModel)]="editedProject.summary">
     </div>
     <div class="form-group mb-2">
       <label for="description">Descripción</label>
-      <textarea class="form-control" name="description" rows="3" [(ngModel)]="newProject.description"></textarea>
+      <textarea class="form-control" name="description" rows="3" [(ngModel)]="editedProject.description"></textarea>
     </div>
     <div class="form-group mb-2">
       <label for="image">Imagen</label>
-      <input [(ngModel)]="newProject.image" type="file" class="form-control" name="image" #fileImage
+      <input [(ngModel)]="editedProject.image" type="file" class="form-control" name="image" #fileImage
         (change)="changeImage(fileImage)">
     </div>
     <div class="row justify-content-between">
       <div class="col-4">
-        <img *ngIf="newProject.image == undefined" src="assets/default.png" alt="" class="img-thumbnail">
-        <img *ngIf [src]="newProject.image" alt="" class="img-thumbnail">
+        <img *ngIf="editedProject.image == undefined" src="assets/default.png" alt="" class="img-thumbnail">
+        <img *ngIf [src]="editedProject.image" alt="" class="img-thumbnail">
       </div>
       <div class="col-3">
         <button type="submit" class="btn btn-lg btn-primary">Edit</button>

@@ -6,7 +6,7 @@ import { IProject } from '../interfaces/i-project';
 @Component({
   selector: 'project-detail',
   templateUrl: './project-detail.component.html',
-  styleUrls: ['./project-detail.component.css']
+  styleUrls: ['./project-detail.component.css'],
 })
 export class ProjectDetailComponent implements OnInit {
   project!: IProject;
@@ -18,32 +18,22 @@ export class ProjectDetailComponent implements OnInit {
 
   ngOnInit() {
     const id = +this.route.snapshot.params['id'];
-    this.projectsService.getProject(id).subscribe({
-      next: project => { this.project = project; },
-      error: error => console.log(error)
-    }
-    );
+    this.projectsService.getProject(id).subscribe((project) => {
+      this.project = project;
+    });
   }
 
   @Output() projectDeleted = new EventEmitter<any>();
 
-  deleteCard(){
-    this.projectsService.deleteProject(<number>this.project.id).subscribe({
-      next:deleted=>{
-        console.log("Filas eliminadas:" + deleted);
-        this.projectDeleted.emit(this.project);
-      },
-      error:error=>console.log(error)
-    });
+  deleteCard() {
+    this.projectsService.deleteProject(<number>this.project.id)
+      .subscribe(() => this.projectDeleted.emit(this.project));
     this.goBack();
   }
 
-  editCard() {
+  editCard() {}
 
-  }
-
-  goBack(){
+  goBack() {
     this.directRoute.navigate(['/products']);
   }
-
 }
