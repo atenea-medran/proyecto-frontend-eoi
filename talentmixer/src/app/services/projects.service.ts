@@ -15,9 +15,19 @@ export class ProjectsService {
     return this.http.get<IProject[]>(this.URL);
   }
 
-  getProject(idProject:number):Observable<IProject>{
-    return this.http.get<IProject>(this.URL+"/"+idProject);
+  // getProject(idProject:number):Observable<IProject>{
+  //   return this.http.get<IProject>(this.URL+"/"+idProject);
+  // }
+
+  getProject(idProject: number): Observable<IProject> {
+    return this.http.get<IProject>(`${this.URL}/${idProject}`).pipe(
+      catchError((error) => {
+        console.error('Error fetching project:', error);
+        return throwError(error);
+      }),
+    );
   }
+
 
   addProject(project:IProject):Observable<IProject> {
     return this.http.post<IProject>(this.URL,project);

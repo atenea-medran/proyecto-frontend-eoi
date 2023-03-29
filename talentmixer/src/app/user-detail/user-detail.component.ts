@@ -21,20 +21,16 @@ export class UserDetailComponent implements OnInit {
 
 
   ngOnInit() {
+    this.user = this.globalService.user;
+
     const id = +this.route.snapshot.params['id'];
     this.usersService.getUser(id).subscribe((user) => {
       this.user = user;
     });
-    this.user.projects.forEach((project) => { console.log(project) });
-
-  }
-
-  buildProjects() {
-    this.user.projects.forEach
   }
 
   deleteUser() {
     console.log("Hola")
   }
-  
+
 }

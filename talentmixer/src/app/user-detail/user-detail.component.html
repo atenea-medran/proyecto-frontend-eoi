@@ -1,5 +1,36 @@
 <div class="container">
-  <div class="card flex" *ngIf="globalService.user">
+  <div class="row">
+    <div class="col-12">
+      <h3>User Profile</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="user-data">
+        <strong>Nombre de usuario:</strong>
+        <p>{{ globalService.user.username }}</p>
+      </div>
+      <div class="user-data">
+        <strong>Email:</strong>
+        <p>{{ globalService.user.email }}</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="user-data">
+        <strong>Nombre:</strong>
+        <p>{{ globalService.user.firstName }}</p>
+      </div>
+      <div class="user-data">
+        <strong>Apellido:</strong>
+        <p>{{ globalService.user.surname }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="card flex">
     <p class="card-text">Nombre de usuario:</p>
     <p class="card-text">{{globalService.user.username}}</p>
     <p class="card-text">Email:</p>
@@ -9,12 +40,13 @@
     <p class="card-text">Apellido</p>
     <p class="card-text">{{globalService.user.surname}}</p>
     <div class="row justify-content-end">
-      <button id="edit" class="btn ml-3 float-right" [routerLink]="['/user',globalService.user.id]" [routerLinkActive]="['active']">Edit</button>
+      <button id="edit" class="btn ml-3 float-right" [routerLink]="['/user',globalService.user.id]"
+        [routerLinkActive]="['active']">Edit</button>
       <button class="btn btn-danger ml-15 float-right" (click)="deleteUser()">Delete</button>
     </div>
   </div>
-  </div>
-  <div class="row justify-content-center flex-column align-items-center" *ngIf="user.projects && user.projects.length; else noProjects">
+</div>
+<div class="row justify-content-center flex-column align-items-center" *ngIf="user.projects && user.projects.length; else noProjects">
     <project-card class="col-10 col-lg-6" *ngFor="let project of user.projects" [project]="project">
     </project-card>
   </div>
