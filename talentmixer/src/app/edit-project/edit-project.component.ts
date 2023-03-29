@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { IProject } from '../interfaces/i-project';
 import { ProjectsService } from '../services/projects.service';
 import { ActivatedRoute } from '@angular/router';
-import { GlobalService } from '../global.service';
+import { GlobalService } from '../services/global.service';
 
 @Component({
   selector: 'edit-project',

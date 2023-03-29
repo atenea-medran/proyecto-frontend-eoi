@@ -7,6 +7,9 @@
         </div>
         <div class="card-body">
           <form (ngSubmit)="register()">
+            <div id="success" class="mb-2" *ngIf="successVisible">
+              <h4>Usuario creado con éxito</h4>
+            </div>
             <div class="mb-2">
               <label for="username" class="form-label">Nombre de usuario</label>
               <input type="text" class="form-control" name="username" [(ngModel)]="user.username" required>
@@ -18,10 +21,6 @@
             <div class="mb-2">
               <label for="userPassword" class="form-label">Contraseña</label>
               <input type="password" class="form-control" name="userPassword" [(ngModel)]="user.userPassword" required>
-            </div>
-            <div class="mb-2">
-              <label for="confirmPassword" class="form-label">Confirmar contraseña</label>
-              <input type="password" class="form-control" name="confirmPassword" required>
             </div>
             <div class="mb-2">
               <label for="firstName" class="form-label">Nombre</label>

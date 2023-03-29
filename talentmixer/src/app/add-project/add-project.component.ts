@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { IProject } from '../interfaces/i-project';
 import { ProjectsService } from '../services/projects.service';
-import { GlobalService } from '../global.service';
+import { GlobalService } from '../services/global.service';
 
 @Component({
   selector: 'add-project',
@@ -46,7 +46,7 @@ export class AddProjectComponent implements OnInit {
 
 
 // cambiar nombre
-  changeImage(fileInput: HTMLInputElement) {
+  previsualizeImage(fileInput: HTMLInputElement) {
 
     if (!fileInput.files || fileInput.files.length === 0) {
      return;
@@ -55,10 +55,7 @@ export class AddProjectComponent implements OnInit {
     const reader: FileReader = new FileReader();
     reader.readAsDataURL(fileInput.files[0]);
     reader.addEventListener('loadend', (e) => {
-      /*if(reader.result!=null)
-        this.newEvent.image = reader.result.toString();
-      else
-      this.newEvent.image = "";*/
+
       this.newProject.image = reader.result as string;
     });
 

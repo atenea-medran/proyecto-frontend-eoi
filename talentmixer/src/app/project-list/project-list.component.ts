@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProjectsService } from '../services/projects.service';
 import { IProject } from '../interfaces/i-project';
-import { GlobalService } from '../global.service';
+import { GlobalService } from '../services/global.service';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class ProjectListComponent implements OnInit {
   projects: IProject[] = [];
 
   ngOnInit() {
-    console.log(this.globalService.user);
+    // console.log(this.globalService.user);
     this.service.getProjects().subscribe(
       projectsFromServer => {
         this.projects = projectsFromServer.map(project => ({
@@ -35,7 +35,7 @@ export class ProjectListComponent implements OnInit {
     this.projects.sort((project1,project2)=>project1.createdAt.getTime()-project2.createdAt.getTime());
   }
 
-  deleteCard(deletedProject:IProject) {
+  updateCardList(deletedProject:IProject) {
     this.projects = this.projects.filter(project=>project!=deletedProject);
   }
 

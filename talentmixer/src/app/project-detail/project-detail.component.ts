@@ -21,6 +21,7 @@ export class ProjectDetailComponent implements OnInit {
     this.projectsService.getProject(id).subscribe((project) => {
       this.project = project;
     });
+    console.log(this.project);
   }
 
   @Output() projectDeleted = new EventEmitter<any>();

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalService } from '../global.service';
+import { GlobalService } from '../services/global.service';
 import { IUser } from '../interfaces/i-user';
 import { Router } from '@angular/router';
 
@@ -21,7 +21,6 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.globalService.logged = false;
-    this.router.navigate(['/projects']);
   }
 
 }

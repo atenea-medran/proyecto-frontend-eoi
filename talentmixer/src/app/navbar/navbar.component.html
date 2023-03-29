@@ -21,8 +21,8 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuario</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                  <a class="dropdown-item" [routerLink]="['/user']" [routerLinkActive]="['active']">Cuenta</a>
-                  <a class="dropdown-item" (click)="logout()">Cerrar sesión</a>
+                  <a class="dropdown-item" [routerLink]="['/user',globalService.user.id]" [routerLinkActive]="['active']">Cuenta</a>
+                  <a class="dropdown-item" (click)="logout()" [routerLink]="['/projects']" [routerLinkActive]="['active']">Cerrar sesión</a>
                 </div>
               </li>
             </ng-template>

@@ -5,3 +5,17 @@
 .card-title {
   margin-bottom: 0px;
 }
+
+#success{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background-color: rgb(173, 246, 185);
+  border-radius: 0.5rem;
+}
+
+#success h4 {
+  margin: 0.5rem;
+}

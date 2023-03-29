@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { IUser } from '../interfaces/i-user';
 import { UsersService } from '../services/users.service';
-import { GlobalService } from '../global.service';
+import { GlobalService } from '../services/global.service';
 
 @Component({
   selector: 'login',

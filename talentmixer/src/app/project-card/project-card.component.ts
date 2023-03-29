@@ -17,7 +17,7 @@ export class ProjectCardComponent {
 
   constructor(private projectsService : ProjectsService) {}
 
-  deleteCard() {
+  deleteProject() {
     this.projectsService.deleteProject(<number>this.project.id).subscribe(
       () => { this.projectDeleted.emit(this.project);
       });
