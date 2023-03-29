@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" *ngIf="user">
   <div class="card-header">
     <h4 class="card-title">{{project.title}}</h4>
   </div>
@@ -8,9 +8,14 @@
       <img *ngIf="project.image == undefined" class="img-thumbnail" src="assets/default.png" alt="project_image">
       <img *ngIf="project.image != undefined" class="img-thumbnail" [src]="project.image" alt="project_image">
       <div>
+      <div>
         <p class="card-text">{{project.summary}}</p>
       </div>
+      <div>
+        <p class="card-text">Email de contacto: {{user.email}}</p>
+      </div>
     </div>
+  </div>
   </a>
 
   <div class="card-footer text-muted justify-content-between">

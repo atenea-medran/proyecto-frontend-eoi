@@ -9,12 +9,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarsExample04">
           <ul class="navbar-nav">
-            <li class="nav-item active" [routerLink]="['/about']" [routerLinkActive]="['active']">
-              <a class="nav-link" >About</a>
+            <li class="nav-item active">
+              <a class="nav-link" [routerLink]="['/about']" [routerLinkActive]="['active']">About</a>
             </li>
-            <li id="login" *ngIf="globalService.logged==false; else loggedWelcome" class="btn btn-light"
-            [routerLink]="['/login']" [routerLinkActive]="['active']">
-              <a>
+            <li id="login" *ngIf="globalService.logged==false; else loggedWelcome" class="btn btn-light">
+              <a [routerLink]="['/login']" [routerLinkActive]="['active']">
                 Iniciar sesión
               </a>
             </li>
@@ -22,9 +21,9 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">Usuario</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01" [routerLink]="['/user',globalService.user.id]"
-                [routerLinkActive]="['active']">
-                  <a class="dropdown-item" >Cuenta</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                  <a class="dropdown-item" [routerLink]="['/user',globalService.user.id]"
+                    [routerLinkActive]="['active']">Cuenta</a>
                   <a class="dropdown-item" (click)="logout()" [routerLink]="['/projects']"
                     [routerLinkActive]="['active']">Cerrar sesión</a>
                 </div>

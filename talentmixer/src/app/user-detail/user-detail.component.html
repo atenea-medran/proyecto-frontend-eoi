@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-12">
+    <div class="col-8">
       <h3>User Profile</h3>
     </div>
   </div>
@@ -27,29 +27,21 @@
     </div>
   </div>
 </div>
-
-
 <div class="container">
-  <div class="card flex">
-    <p class="card-text">Nombre de usuario:</p>
-    <p class="card-text">{{globalService.user.username}}</p>
-    <p class="card-text">Email:</p>
-    <p class="card-text">{{globalService.user.email}}</p>
-    <p class="card-text">Nombre</p>
-    <p class="card-text">{{globalService.user.firstName}}</p>
-    <p class="card-text">Apellido</p>
-    <p class="card-text">{{globalService.user.surname}}</p>
-    <div class="row justify-content-end">
-      <button id="edit" class="btn ml-3 float-right" [routerLink]="['/user',globalService.user.id]"
+  <div class="row">
+    <div class="col text-right">
+      <button id="edit" class="btn mr-2" [routerLink]="['/user',globalService.user.id]"
         [routerLinkActive]="['active']">Edit</button>
-      <button class="btn btn-danger ml-15 float-right" (click)="deleteUser()">Delete</button>
+      <button class="btn btn-danger" (click)="deleteUser()">Delete</button>
     </div>
   </div>
 </div>
-<div class="row justify-content-center flex-column align-items-center" *ngIf="user.projects && user.projects.length; else noProjects">
-    <project-card class="col-10 col-lg-6" *ngFor="let project of user.projects" [project]="project">
-    </project-card>
-  </div>
-  <ng-template #noProjects>
-    <h3>No hay proyectos disponibles</h3>
-  </ng-template>
+
+<div class="row justify-content-center flex-column align-items-center"
+  *ngIf="user.projects && user.projects.length; else noProjects">
+  <project-card class="col-10 col-lg-6" *ngFor="let project of user.projects" [project]="project">
+  </project-card>
+</div>
+<ng-template #noProjects>
+  <h3>No hay proyectos disponibles</h3>
+</ng-template>
