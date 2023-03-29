@@ -3,6 +3,7 @@ import { GlobalService } from '../services/global.service';
 import { IUser } from '../interfaces/i-user';
 import { UsersService } from '../services/users.service';
 import { ActivatedRoute } from '@angular/router';
+import { IProject } from '../interfaces/i-project';
 
 @Component({
   selector: 'user-detail',
@@ -24,11 +25,16 @@ export class UserDetailComponent implements OnInit {
     this.usersService.getUser(id).subscribe((user) => {
       this.user = user;
     });
-    console.log(this.user);
+    this.user.projects.forEach((project) => { console.log(project) });
 
+  }
+
+  buildProjects() {
+    this.user.projects.forEach
   }
 
   deleteUser() {
     console.log("Hola")
   }
+  
 }

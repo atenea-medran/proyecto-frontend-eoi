@@ -44,8 +44,6 @@ export class AddProjectComponent implements OnInit {
 
   successVisible: boolean = false;
 
-
-// cambiar nombre
   previsualizeImage(fileInput: HTMLInputElement) {
 
     if (!fileInput.files || fileInput.files.length === 0) {
@@ -55,8 +53,8 @@ export class AddProjectComponent implements OnInit {
     const reader: FileReader = new FileReader();
     reader.readAsDataURL(fileInput.files[0]);
     reader.addEventListener('loadend', (e) => {
-
       this.newProject.image = reader.result as string;
+      console.log(this.newProject.image)
     });
 
   }
