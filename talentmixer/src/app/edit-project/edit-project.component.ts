@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { IProject } from '../interfaces/i-project';
 import { ProjectsService } from '../services/projects.service';
 import { ActivatedRoute } from '@angular/router';
+import { GlobalService } from '../global.service';
 
 @Component({
   selector: 'edit-project',
@@ -28,7 +29,8 @@ export class EditProjectComponent implements OnInit {
   }
 
   constructor(private projectsService:ProjectsService,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute, public globalService: GlobalService) {}
+
 
   getProject() {
     const id = +this.route.snapshot.params['id'];

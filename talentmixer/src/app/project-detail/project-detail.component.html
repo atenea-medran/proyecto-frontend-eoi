@@ -1,3 +1,4 @@
+<div class="container">
 <div class="card" *ngIf="project">
   <h1 class="card-title">{{project.title}}</h1>
   <p class="card-text">{{project.summary|titlecase}}</p>
@@ -8,4 +9,5 @@
     <button id="edit" class="btn ml-3 float-right" [routerLink]="['/edit',project.id]" [routerLinkActive]="['active']">Edit</button>
     <button class="btn btn-danger ml-15 float-right" (click)="deleteCard()">Delete</button>
   </div>
+</div>
 </div>

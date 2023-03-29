@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { IProject } from '../interfaces/i-project';
 import { ProjectsService } from '../services/projects.service';
+import { GlobalService } from '../global.service';
 
 @Component({
   selector: 'add-project',
@@ -22,11 +23,12 @@ export class AddProjectComponent implements OnInit {
       description: "",
       createdAt: new Date(),
       image: undefined,
-/* CUIDADOOOOOO */      idUserAccount: 1
+      idUserAccount: this.globalService.user.id
     };
   }
 
-  constructor(private projectsService:ProjectsService) {}
+  constructor(private projectsService:ProjectsService, public globalService: GlobalService){}
+
 
   @Output() newProjectEmitted = new EventEmitter<IProject>();
 

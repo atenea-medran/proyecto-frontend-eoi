@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-4">
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <div class="card">
@@ -6,16 +6,22 @@
           <h3 class="card-title">Iniciar sesión</h3>
         </div>
         <div class="card-body">
-          <form ng-submit="login()">
+          <form (ngSubmit)="login()">
             <div class="mb-2">
               <label for="username" class="form-label">Username</label>
-              <input type="text" class="form-control" name="username" ng-model="user.name" required>
+              <input type="text" class="form-control" name="username" [(ngModel)]="user.username" required>
             </div>
-            <div class="mb-2">
+            <div class="mb-3">
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" ng-model="user.password" required>
+              <input type="password" class="form-control" name="userPassword" [(ngModel)]="user.userPassword" required>
             </div>
-            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+            <button type="submit" class="btn btn-primary mb-2">Iniciar sesión</button>
+            <div class="mb-2">
+              <p>
+                ¿No tienes cuenta? <a [routerLink]="['/register']" [routerLinkActive]="['active']">Regístrate</a>
+              <p>
+            </div>
+
           </form>
         </div>
       </div>

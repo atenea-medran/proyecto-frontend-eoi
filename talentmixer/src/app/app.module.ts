@@ -17,6 +17,8 @@ import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { RegisterComponent } from './register/register.component';
     AboutComponent,
     EditProjectComponent,
     RegisterComponent,
+    NavbarComponent,
+    UserDetailComponent,
   ],
   imports: [
     BrowserModule,

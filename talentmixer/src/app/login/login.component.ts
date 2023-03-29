@@ -1,29 +1,50 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { IUser } from '../interfaces/i-user';
+import { UsersService } from '../services/users.service';
+import { GlobalService } from '../global.service';
 
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
-
-  loginEmail: string = "";
-  loginPassword: string = "";
-  registerEmail: string = "";
-  registerPassword: string = "";
-
-  onLoginSubmit(loginForm: NgForm) {
-    if (loginForm.valid) {
-      console.log('Login form submitted with values:', loginForm.value);
-      // Implement actual login logic here
-    }
+export class LoginComponent implements OnInit {
+  ngOnInit() {
+    this.instantiateUser();
   }
 
-  onRegisterSubmit(registerForm: NgForm) {
-    if (registerForm.valid) {
-      console.log('Register form submitted with values:', registerForm.value);
-      // Implement actual registration logic here
-    }
+  @Output() loggedIn = new EventEmitter<any>();
+
+  user!: IUser;
+
+  instantiateUser() {
+    this.user = {
+      username: '',
+      userPassword: '',
+      firstName: '',
+      surname: '',
+      email: '',
+      projects: []
+    };
+  }
+
+  constructor(private usersService: UsersService,
+    public globalService: GlobalService) {}
+
+  users: IUser[] = [];
+
+
+  login() {
+    this.usersService.getUsers().subscribe((usersFromServer) => {
+      usersFromServer.forEach((user) => {
+        if (
+          user.username == this.user.username &&
+          user.userPassword == this.user.userPassword
+        ) {
+          this.globalService.user = user;
+          this.globalService.logged = true;
+        }
+      });
+    });
   }
 }

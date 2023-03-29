@@ -23,3 +23,8 @@ h3 {
 div project-card {
   padding: 0rem;
 }
+
+#disabled {
+  background-color: rgba(199, 219, 255, 0.9);
+  color: #000000;
+}

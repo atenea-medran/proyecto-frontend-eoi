@@ -6,6 +6,7 @@ import { AboutComponent } from "./about/about.component";
 import { LoginComponent } from "./login/login.component";
 import { EditProjectComponent } from "./edit-project/edit-project.component";
 import { RegisterComponent } from "./register/register.component";
+import { UserDetailComponent } from "./user-detail/user-detail.component";
 
 
 export const APP_ROUTES:Route[] = [
@@ -16,7 +17,7 @@ export const APP_ROUTES:Route[] = [
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'user', component: UserDetailComponent },
   { path: '', redirectTo: '/projects', pathMatch: 'full' },
   { path: '**', redirectTo: '/projects', pathMatch: 'full' }
-
 ];

@@ -9,10 +9,15 @@
           placeholder="Buscar proyectos" aria-label="Search">
       </form>
     </ul>
-    <div id="buttonDiv" class="button-container">
-      <a class="nav-link" [routerLink]="['/new']" [routerLinkActive]="['active']"><button id="new"
-          class="btn btn-info">Nuevo proyecto</button></a>
-    </div>
+      <div *ngIf="globalService.logged==true; else noLogged" class="button-container">
+        <a class="nav-link" [routerLink]="['/new']" [routerLinkActive]="['active']"><button id="new"
+            class="btn btn-info">Nuevo proyecto</button></a>
+      </div>
+      <ng-template #noLogged>
+        <div id="disabled" class="button-container opacity-50" title="Inicie sesión para crear eventos.">
+          <a class="nav-link disabled"><button id="new" class="btn btn-info">Nuevo proyecto</button></a>
+        </div>
+      </ng-template>
   </nav>
 </div>
 

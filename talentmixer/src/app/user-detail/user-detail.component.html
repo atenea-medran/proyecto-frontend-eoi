@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="card flex" *ngIf="globalService.user">
+    <p class="card-text">Nombre de usuario:</p>
+    <p class="card-text">{{globalService.user.username}}</p>
+    <p class="card-text">Email:</p>
+    <p class="card-text">{{globalService.user.email}}</p>
+    <p class="card-text">Nombre</p>
+    <p class="card-text">{{globalService.user.firstName}}</p>
+    <p class="card-text">Apellido</p>
+    <p class="card-text">{{globalService.user.surname}}</p>
+    <div class="row justify-content-end">
+      <button id="edit" class="btn ml-3 float-right" [routerLink]="['/user',globalService.user.id]" [routerLinkActive]="['active']">Edit</button>
+      <button class="btn btn-danger ml-15 float-right" (click)="deleteUser()">Delete</button>
+    </div>
+  </div>
+  </div>

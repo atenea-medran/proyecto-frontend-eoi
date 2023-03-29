@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-4">
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <div class="card">
@@ -6,33 +6,33 @@
           <h3 class="card-title">Registro</h3>
         </div>
         <div class="card-body">
-          <form ng-submit="register()">
+          <form (ngSubmit)="register()">
             <div class="mb-2">
-              <label for="username" class="form-label">Username</label>
-              <input type="text" class="form-control" name="username" ng-model="user.name" required>
+              <label for="username" class="form-label">Nombre de usuario</label>
+              <input type="text" class="form-control" name="username" [(ngModel)]="user.username" required>
             </div>
             <div class="mb-2">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" ng-model="user.email" required>
+              <input type="email" class="form-control" name="email" [(ngModel)]="user.email" required>
             </div>
             <div class="mb-2">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" ng-model="user.password" required>
+              <label for="userPassword" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" name="userPassword" [(ngModel)]="user.userPassword" required>
             </div>
             <div class="mb-2">
-              <label for="confirmPassword" class="form-label">Confirm Password</label>
-              <input type="password" class="form-control" id="confirmPassword" ng-model="user.confirmPassword" required>
+              <label for="confirmPassword" class="form-label">Confirmar contraseña</label>
+              <input type="password" class="form-control" name="confirmPassword" required>
             </div>
             <div class="mb-2">
-              <label for="name" class="form-label">Nombre</label>
-              <input type="text" class="form-control" name="name" ng-model="user.name" required>
+              <label for="firstName" class="form-label">Nombre</label>
+              <input type="text" class="form-control" name="firstName" [(ngModel)]="user.firstName" required>
             </div>            <div class="mb-2">
               <label for="surname" class="form-label">Apellido</label>
-              <input type="text" class="form-control" name="surname" ng-model="user.name" required>
+              <input type="text" class="form-control" name="surname" [(ngModel)]="user.surname" required>
             </div>
             <div class="mb-2">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="terms" ng-model="user.terms" required>
+                <input class="form-check-input" type="checkbox" required>
                 <label class="form-check-label" for="terms">
                   Estoy de acuerdo con los  <a [routerLink]="['/about']" [routerLinkActive]="['active']">términos y condiciones</a>
                 </label>

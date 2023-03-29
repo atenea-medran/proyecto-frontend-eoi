@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProjectsService } from '../services/projects.service';
 import { IProject } from '../interfaces/i-project';
+import { GlobalService } from '../global.service';
+
 
 @Component({
   selector: 'project-list',
@@ -9,11 +11,12 @@ import { IProject } from '../interfaces/i-project';
 })
 export class ProjectListComponent implements OnInit {
 
-  constructor(private service:ProjectsService){}
+  constructor(private service:ProjectsService, public globalService: GlobalService){}
 
   projects: IProject[] = [];
 
   ngOnInit() {
+    console.log(this.globalService.user);
     this.service.getProjects().subscribe(
       projectsFromServer => {
         this.projects = projectsFromServer.map(project => ({
