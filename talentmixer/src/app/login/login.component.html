@@ -7,6 +7,12 @@
         </div>
         <div class="card-body">
           <form (ngSubmit)="login()">
+            <div id="success" class="mb-2" *ngIf="successVisible === 1">
+              <h4>Inicio de sesión correcto</h4>
+            </div>
+            <div id="failure" class="mb-2" *ngIf="successVisible === 2">
+              <h4>Inicio de sesión incorrecto</h4>
+            </div>
             <div class="mb-2">
               <label for="username" class="form-label">Username</label>
               <input type="text" class="form-control" name="username" [(ngModel)]="user.username" required>

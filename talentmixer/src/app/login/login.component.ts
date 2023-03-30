@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
 
   users: IUser[] = [];
 
+  successVisible: number = 0;
 
   login() {
     this.usersService.getUsers().subscribe((usersFromServer) => {
@@ -43,8 +44,12 @@ export class LoginComponent implements OnInit {
         ) {
           this.globalService.user = user;
           this.globalService.logged = true;
+          this.successVisible = 1;
         }
+        if(!this.globalService.logged) this.successVisible = 2;
+
       });
     });
+    console.log(this.successVisible)
   }
 }

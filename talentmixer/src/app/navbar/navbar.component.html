@@ -9,6 +9,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarsExample04">
           <ul class="navbar-nav">
+            <li *ngIf="globalService.user" id="hola" class="nav-item mt-auto mb-auto mr-5">
+              ¡Hola, {{ globalService.user.firstName }}!
+            </li>
             <li class="nav-item active">
               <a class="nav-link" [routerLink]="['/about']" [routerLinkActive]="['active']">About</a>
             </li>
