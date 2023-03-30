@@ -7,8 +7,8 @@
   <p class="card-text">Fecha de creación: {{project.createdAt|date:"dd/MM/y"}}</p>
   <img *ngIf="project.image != undefined" [src]="project.image" alt="project_image">
   <div class="row justify-content-end">
-    <button id="edit" class="btn ml-3 float-right" [routerLink]="['/edit',project.id]" [routerLinkActive]="['active']">Edit</button>
-    <button class="btn btn-danger ml-15 float-right" (click)="deleteCard()">Delete</button>
+    <button *ngIf="globalService.user?.id == user?.id" id="edit" class="btn ml-3 float-right" [routerLink]="['/edit',project.id]" [routerLinkActive]="['active']">Edit</button>
+    <button *ngIf="globalService.user?.id == user?.id" class="btn btn-danger ml-15 float-right" (click)="deleteCard()">Delete</button>
   </div>
 </div>
 </div>

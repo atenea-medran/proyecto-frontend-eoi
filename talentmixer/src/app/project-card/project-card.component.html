@@ -20,6 +20,6 @@
 
   <div class="card-footer text-muted justify-content-between">
     {{project.createdAt|date:"dd/MM/y"}}
-    <button class="btn btn-danger ml-3" (click)="deleteProject()">Delete</button>
+    <button *ngIf="globalService.user?.id == user?.id" class="btn btn-danger ml-3" (click)="deleteProject()">Delete</button>
   </div>
 </div>

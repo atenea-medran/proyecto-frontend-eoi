@@ -3,6 +3,7 @@ import { IProject } from '../interfaces/i-project';
 import { ProjectsService } from '../services/projects.service';
 import { UsersService } from '../services/users.service';
 import { IUser } from '../interfaces/i-user';
+import { GlobalService } from '../services/global.service';
 
 @Component({
   selector: 'project-card',
@@ -18,7 +19,8 @@ export class ProjectCardComponent implements OnInit {
   user!: IUser;
 
   constructor(private projectsService : ProjectsService,
-    private usersService: UsersService) {}
+    private usersService: UsersService,
+    public globalService: GlobalService) {}
 
   ngOnInit() {
     this.usersService.getUser(this.project.idUserAccount!).subscribe((user) => {

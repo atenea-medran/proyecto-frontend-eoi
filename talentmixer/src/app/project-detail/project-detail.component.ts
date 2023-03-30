@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IProject } from '../interfaces/i-project';
 import { UsersService } from '../services/users.service';
 import { IUser } from '../interfaces/i-user';
+import { GlobalService } from '../services/global.service';
 
 @Component({
   selector: 'project-detail',
@@ -18,7 +19,8 @@ export class ProjectDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private projectsService: ProjectsService,
     private usersService: UsersService,
-    private directRoute: Router
+    private directRoute: Router,
+    public globalService: GlobalService
   ) {}
 
   ngOnInit() {

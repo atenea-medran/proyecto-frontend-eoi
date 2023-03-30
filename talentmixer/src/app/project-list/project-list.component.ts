@@ -11,7 +11,8 @@ import { GlobalService } from '../services/global.service';
 })
 export class ProjectListComponent implements OnInit {
 
-  constructor(private service:ProjectsService, public globalService: GlobalService){}
+  constructor(private service:ProjectsService,
+    public globalService: GlobalService){}
 
   projects: IProject[] = [];
 
