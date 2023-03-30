@@ -2,7 +2,8 @@
   <nav class="navbar col-10 navbar-light bg-light mb-2 d-flex justify-content-between align-items-center">
     <ul class="nav nav-pills">
       <li class="nav-item">
-        <a class="nav-link" href="javascript:void(0)" (click)="orderDate()">Orden por más antiguos</a>
+        <a *ngIf="new" class="nav-link" href="javascript:void(0)" (click)="orderOlderFirst()">Orden por más antiguos</a>
+        <a *ngIf="!new" class="nav-link" href="javascript:void(0)" (click)="orderNewerFirst()">Orden por más recientes</a>
       </li>
       <form class="form-inline">
         <input id="search" class="form-control mr-md-2" type="text" [(ngModel)]="search" name="search"

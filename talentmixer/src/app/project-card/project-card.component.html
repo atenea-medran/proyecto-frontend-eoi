@@ -6,7 +6,9 @@
 
     <div class="card-body">
       <img *ngIf="project.image == undefined" class="img-thumbnail" src="assets/default.png" alt="project_image">
-      <img *ngIf="project.image != undefined" class="img-thumbnail" [src]="project.image" alt="project_image">
+      <img *ngIf="project.image != undefined && !userDetail" class="img-thumbnail" [src]="project.image" alt="project_image">
+      <img *ngIf="project.image != undefined && userDetail" class="img-thumbnail" [src]="'http://localhost:8080/api/'+project.image" alt="project_image">
+
       <div>
       <div>
         <p class="card-text">{{project.summary}}</p>

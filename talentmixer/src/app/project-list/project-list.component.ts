@@ -29,11 +29,18 @@ export class ProjectListComponent implements OnInit {
   }
 
  search = "";
+ new : boolean = true;
 
 
-  orderDate() {
+  orderOlderFirst() {
     this.search="";
     this.projects.sort((project1,project2)=>project1.createdAt.getTime()-project2.createdAt.getTime());
+    this.new = false;
+  }
+  orderNewerFirst() {
+    this.search="";
+    this.projects.sort((project1,project2)=>project2.createdAt.getTime()-project1.createdAt.getTime());
+    this.new = true;
   }
 
   updateCardList(deletedProject:IProject) {
