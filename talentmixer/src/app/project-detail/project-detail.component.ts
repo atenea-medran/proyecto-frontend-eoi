@@ -25,7 +25,6 @@ export class ProjectDetailComponent implements OnInit {
 
   ngOnInit() {
     const id = +this.route.snapshot.params['id'];
-    console.log(id)
     this.projectsService.getProject(id).subscribe((project) => {
       this.project = project;
       this.usersService.getUser(this.project.idUserAccount!).subscribe((user) => {

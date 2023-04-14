@@ -9,13 +9,25 @@
 #success{
   display: flex;
   align-items: center;
-  text-align: center;
   justify-content: center;
   padding: 0.5rem;
   background-color: rgb(173, 246, 185);
   border-radius: 0.5rem;
 }
 
+#failure{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background-color: rgb(246, 173, 173);
+  border-radius: 0.5rem;
+}
+
 #success h4 {
+  margin: 0.5rem;
+}
+
+#failure h4 {
   margin: 0.5rem;
 }

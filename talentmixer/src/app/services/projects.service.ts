@@ -15,10 +15,6 @@ export class ProjectsService {
     return this.http.get<IProject[]>(this.URL);
   }
 
-  // getProject(idProject:number):Observable<IProject>{
-  //   return this.http.get<IProject>(this.URL+"/"+idProject);
-  // }
-
   getProject(idProject: number): Observable<IProject> {
     return this.http.get<IProject>(`${this.URL}/${idProject}`).pipe(
       catchError((error) => {
@@ -32,10 +28,6 @@ export class ProjectsService {
   addProject(project:IProject):Observable<IProject> {
     return this.http.post<IProject>(this.URL,project);
   }
-
-  // updateProject(project:IProject):Observable<IProject> {
-  //   return this.http.put<IProject>(this.URL+"/"+project.id,project);
-  // }
 
   updateProject(project:IProject):Observable<IProject>{
     return this.http.put<{project:IProject,mensaje:string}>(this.URL+"/"+project.id,project).pipe(

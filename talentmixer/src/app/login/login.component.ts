@@ -32,11 +32,10 @@ export class LoginComponent implements OnInit {
     public globalService: GlobalService) {}
 
   users: IUser[] = [];
-
   successVisible: number = 0;
 
   login() {
-    this.usersService.getUsers().subscribe((usersFromServer) => {
+    this.usersService.getUsers().subscribe(usersFromServer => {
       usersFromServer.forEach((user) => {
         if (
           user.username == this.user.username &&
@@ -50,6 +49,5 @@ export class LoginComponent implements OnInit {
 
       });
     });
-    console.log(this.successVisible)
   }
 }

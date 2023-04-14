@@ -36,16 +36,17 @@
     </div>
   </div>
 </div>
-
-<div class="row justify-content-center flex-column align-items-center mt-5"
-  *ngIf="user.projects && user.projects.length; else noProjects">
-  <project-card class="col-10 col-lg-6" *ngFor="let project of user.projects" [project]="project">
-  </project-card>
-</div>
-<ng-template #noProjects>
-  <div class="row justify-content-center flex-column align-items-center mt-5">
-    <div class="col-10 col-lg-6">
-      <h3>No hay proyectos disponibles</h3>
-    </div>
+<div class="container">
+  <div class="row justify-content-center flex-column align-items-center mt-5"
+    *ngIf="user.projects && user.projects.length; else noProjects">
+    <project-card class="col-10 col-lg-6" *ngFor="let project of user.projects" [project]="project">
+    </project-card>
   </div>
-</ng-template>
+  <ng-template #noProjects>
+    <div class="row justify-content-center flex-column align-items-center mt-5">
+      <div class="col-10 col-lg-6">
+        <h3>No hay proyectos disponibles</h3>
+      </div>
+    </div>
+  </ng-template>
+</div>

@@ -54,7 +54,6 @@ export class AddProjectComponent implements OnInit {
     reader.readAsDataURL(fileInput.files[0]);
     reader.addEventListener('loadend', (e) => {
       this.newProject.image = reader.result as string;
-      console.log(this.newProject.image)
     });
 
   }

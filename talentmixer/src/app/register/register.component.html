@@ -7,8 +7,11 @@
         </div>
         <div class="card-body">
           <form (ngSubmit)="register()">
-            <div id="success" class="mb-2" *ngIf="successVisible">
+            <div id="success" class="mb-2" *ngIf="successVisible === 1">
               <h4>Usuario creado con éxito</h4>
+            </div>
+            <div id="failure" class="mb-2" *ngIf="successVisible === 2">
+              <h4>Ya existe una cuenta con ese nombre de usuario.</h4>
             </div>
             <div class="mb-2">
               <label for="username" class="form-label">Nombre de usuario</label>

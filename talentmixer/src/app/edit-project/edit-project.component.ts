@@ -24,7 +24,7 @@ export class EditProjectComponent implements OnInit {
       description: "",
       createdAt: new Date(),
       image: undefined,
-      /* CUIDADOOOOOO */      idUserAccount: 1
+      idUserAccount: this.globalService.user.id
     };
   }
 
@@ -39,16 +39,17 @@ export class EditProjectComponent implements OnInit {
       this.editedProject.title = project.title;
       this.editedProject.summary = project.summary;
       this.editedProject.description = project.description;
-      this.editedProject.image = undefined;
+      if (project.image != null)
+        this.editedProject.image = project.image;
+      else
+        this.editedProject.image = undefined;
     });
   }
 
   updateProject() {
-    console.log(this.editedProject)
     this.projectsService.updateProject(this.editedProject).subscribe(
       project => {
         this.instantiateProject();
-        console.log(project)
       })
     this.successVisible = !this.successVisible;
   }
@@ -64,10 +65,6 @@ export class EditProjectComponent implements OnInit {
     const reader: FileReader = new FileReader();
     reader.readAsDataURL(fileInput.files[0]);
     reader.addEventListener('loadend', (e) => {
-      /*if(reader.result!=null)
-        this.newEvent.image = reader.result.toString();
-      else
-      this.newEvent.image = "";*/
       this.editedProject.image = reader.result as string;
     });
 

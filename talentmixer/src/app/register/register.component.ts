@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   }
 
   user!: IUser;
-  successVisible: boolean = false;
+  successVisible: number = 0;
 
   instantiateUser() {
     this.user = {
@@ -32,12 +32,22 @@ export class RegisterComponent implements OnInit {
     public globalService: GlobalService
   ) {}
 
+  userExists: boolean = false;
   register() {
-    console.log('Try register');
-    this.usersService.addUser(this.user).subscribe((user) => {
-      console.log(user);
+    this.usersService.getUsers().subscribe((usersFromServer) => {
+      usersFromServer.forEach((user) => {
+        if (user.username === this.user.username) {
+          this.successVisible = 2;
+          this.userExists = true;
+        }
+      });
+      if (!this.userExists) {
+        this.usersService.addUser(this.user).subscribe((user) => {});
+        this.instantiateUser();
+        this.successVisible = 1;
+      } else {
+        this.userExists = false;
+      }
     });
-    this.instantiateUser();
-    this.successVisible = !this.successVisible;
   }
 }

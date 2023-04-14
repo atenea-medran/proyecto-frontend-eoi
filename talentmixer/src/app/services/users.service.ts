@@ -19,10 +19,6 @@ export class UsersService {
     return this.http.get<IUser>(this.URL+"/"+idUser);
   }
 
-  // addUser(user:IUser):Observable<IUser> {
-  //   return this.http.post<IUser>(this.URL,user);
-  // }
-
   addUser(user:IUser):Observable<IUser> {
     return this.http.post<{user:IUser,mensaje:string}>(this.URL,user).pipe(
       map(response => {
@@ -33,10 +29,6 @@ export class UsersService {
       new Error("Error al insertar la imagen. Respuesta Server:"+respuesta.status+" "+respuesta.message+" "))
       ));
   }
-
-  // updateUser(user:IUser):Observable<IUser> {
-  //   return this.http.put<IUser>(this.URL+"/"+user.id,user);
-  // }
 
   updateUser(user:IUser):Observable<IUser>{
     return this.http.put<{user:IUser,mensaje:string}>(this.URL+"/"+user.id,user).pipe(

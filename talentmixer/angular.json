@@ -22,7 +22,7 @@
               "src/favicon.ico",
               "src/assets"],
             "styles": ["src/styles.css"],
-            "scripts": []
+            "scripts": ["bootstrap/dist/js/bootstrap.bundle.min.js"]
           },
           "configurations": {
             "production": {

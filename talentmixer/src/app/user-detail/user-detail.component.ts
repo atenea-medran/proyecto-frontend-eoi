@@ -30,7 +30,6 @@ export class UserDetailComponent implements OnInit {
   }
 
   deleteUser() {
-    console.log("Hola")
   }
 
 }

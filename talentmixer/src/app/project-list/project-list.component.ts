@@ -17,15 +17,15 @@ export class ProjectListComponent implements OnInit {
   projects: IProject[] = [];
 
   ngOnInit() {
-    console.log(this.globalService.user);
     this.service.getProjects().subscribe(
       projectsFromServer => {
         this.projects = projectsFromServer.map(project => ({
           ...project,
           createdAt: new Date(project.createdAt)
-        }));
+        })).sort((project1,project2)=>project2.createdAt.getTime()-project1.createdAt.getTime());
       }
     );
+    this.orderNewerFirst()
   }
 
  search = "";

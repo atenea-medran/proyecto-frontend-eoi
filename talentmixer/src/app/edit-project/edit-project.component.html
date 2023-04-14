@@ -1,35 +1,37 @@
-<div class="row justify-content-center" *ngIf="editedProject">
-  <div class="card col-8 mt-4" *ngIf="successVisible">
-    <p>Proyecto editado con éxito</p>
-  </div>
+<div class="container">
+  <div class="row justify-content-center" *ngIf="editedProject">
+    <div class="card col-8 mt-4" *ngIf="successVisible">
+      <p>Proyecto editado con éxito</p>
+    </div>
 
-  <form class="col-10 col-xl-6 mt-4" (ngSubmit)="updateProject()">
-    <div class="form-group mb-2">
-      <label for="name">Título</label>
-      <input type="text" class="form-control" name="title" [(ngModel)]="editedProject.title"
-        placeholder="Introduzca el título">
-    </div>
-    <div class="form-group mb-2">
-      <label for="summary">Resumen</label>
-      <input type="text" class="form-control" name="summary" [(ngModel)]="editedProject.summary">
-    </div>
-    <div class="form-group mb-2">
-      <label for="description">Descripción</label>
-      <textarea class="form-control" name="description" rows="3" [(ngModel)]="editedProject.description"></textarea>
-    </div>
-    <div class="form-group mb-2">
-      <label for="image">Imagen</label>
-      <input [(ngModel)]="editedProject.image" type="file" class="form-control" name="image" #fileImage
-        (change)="changeImage(fileImage)">
-    </div>
-    <div class="row justify-content-between">
-      <div class="col-4">
-        <img *ngIf="editedProject.image == undefined" src="assets/vacio.png" alt="" class="img-thumbnail">
-        <img *ngIf="editedProject.image != undefined" [src]="editedProject.image" alt="" class="img-thumbnail">
+    <form class="col-10 col-xl-6 mt-4" (ngSubmit)="updateProject()">
+      <div class="form-group mb-2">
+        <label for="name">Título</label>
+        <input type="text" class="form-control" name="title" [(ngModel)]="editedProject.title"
+          placeholder="Introduzca el título">
       </div>
-      <div class="col-3">
-        <button type="submit" class="btn btn-lg btn-primary">Edit</button>
+      <div class="form-group mb-2">
+        <label for="summary">Resumen</label>
+        <input type="text" class="form-control" name="summary" [(ngModel)]="editedProject.summary">
       </div>
-    </div>
-  </form>
+      <div class="form-group mb-2">
+        <label for="description">Descripción</label>
+        <textarea class="form-control" name="description" rows="3" [(ngModel)]="editedProject.description"></textarea>
+      </div>
+      <div class="form-group mb-2">
+        <label for="image">Imagen</label>
+        <input (ngModel)="editedProject.image" type="file" class="form-control" name="image" #fileImage
+          (change)="changeImage(fileImage)">
+      </div>
+      <div class="row justify-content-between">
+        <div class="col-4">
+          <img *ngIf="editedProject.image == undefined" src="assets/vacio.png" alt="" class="img-thumbnail">
+          <img *ngIf="editedProject.image != undefined" [src]="editedProject.image" alt="" class="img-thumbnail">
+        </div>
+        <div class="col-3">
+          <button type="submit" class="btn btn-lg btn-primary">Edit</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

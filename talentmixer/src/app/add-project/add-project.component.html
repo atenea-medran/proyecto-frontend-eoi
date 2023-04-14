@@ -26,7 +26,7 @@
             </div>
             <div class="mb-2">
               <label for="image" class="form-label">Imagen</label>
-              <input [(ngModel)]="newProject.image" type="file" class="form-control" name="image" #fileImage
+              <input (ngModel)="newProject.image" type="file" class="form-control" name="image" #fileImage
                 (change)="previsualizeImage(fileImage)">
             </div>
             <div class="row justify-content-between">

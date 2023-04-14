@@ -3,13 +3,13 @@
     <nav id="navbar" class="navbar navbar-expand-md gradient-custom justify-content-between">
       <a [routerLink]="['/projects']" [routerLinkActive]="['active']"><img src="assets/logo.png" alt="Logo"></a>
       <div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
           aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarsExample04">
           <ul class="navbar-nav">
-            <li *ngIf="globalService.user" id="hola" class="nav-item mt-auto mb-auto mr-5">
+            <li *ngIf="globalService.logged" id="hola" class="nav-item mt-auto mb-auto mr-5">
               ¡Hola, {{ globalService.user.firstName }}!
             </li>
             <li class="nav-item active">
@@ -22,7 +22,7 @@
             </li>
             <ng-template #loggedWelcome>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                <a class="nav-link dropdown-toggle" href="example.com" id="dropdown01" data-bs-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">Usuario</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                   <a class="dropdown-item" [routerLink]="['/user',globalService.user.id]"
