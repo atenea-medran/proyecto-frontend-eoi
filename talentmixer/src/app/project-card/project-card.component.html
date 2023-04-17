@@ -1,27 +1,25 @@
-<div class="card" *ngIf="user">
-  <div class="card-header">
-    <h4 class="card-title">{{project.title}}</h4>
-  </div>
-  <a [routerLink]="['/projects', project.id]">
-
-    <div class="card-body">
-      <img *ngIf="project.image == undefined" class="img-thumbnail" src="assets/default.png" alt="project_image">
-      <img *ngIf="project.image != undefined && !userDetail" class="img-thumbnail" [src]="project.image" alt="project_image">
-      <img *ngIf="project.image != undefined && userDetail" class="img-thumbnail" [src]="'http://localhost:8080/api/'+project.image" alt="project_image">
-
-      <div>
-      <div>
-        <p class="card-text">{{project.summary}}</p>
+<div class="container">
+  <div class="row">
+    <div class="card" *ngIf="user">
+      <div class="card-header py-1">
+        <h4 class="card-title mb-0">{{project.title}}</h4>
       </div>
-      <div>
-        <p class="card-text">Email de contacto: {{user.email}}</p>
+      <a [routerLink]="['/projects', project.id]" style="display: block;">
+        <div class="card-body py-1">
+          <img *ngIf="project.image == undefined" class="img-thumbnail" src="assets/default.png" alt="project_image">
+          <img *ngIf="project.image != undefined && !userDetail" class="img-thumbnail" [src]="project.image"
+            alt="project_image">
+          <img *ngIf="project.image != undefined && userDetail" class="img-thumbnail"
+            [src]="'https://api.historicoprecioluz.es/'+project.image" alt="project_image">
+          <p class="card-text">{{project.summary}}</p>
+        </div>
+      </a>
+
+      <div class="card-footer py-1 text-muted justify-content-between">
+        {{project.createdAt|date:"dd/MM/y"}}
+        <button *ngIf="globalService.user?.id == user?.id && globalService.logged" class="btn btn-danger ml-3"
+          (click)="deleteProject()">Delete</button>
       </div>
     </div>
-  </div>
-  </a>
-
-  <div class="card-footer text-muted justify-content-between">
-    {{project.createdAt|date:"dd/MM/y"}}
-    <button *ngIf="globalService.user?.id == user?.id && globalService.logged" class="btn btn-danger ml-3" (click)="deleteProject()">Delete</button>
   </div>
 </div>

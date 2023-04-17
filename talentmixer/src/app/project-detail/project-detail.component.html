@@ -1,8 +1,8 @@
 <div class="container" *ngIf="user">
 <div class="card">
   <h1 class="card-title">{{project.title}}</h1>
-  <p class="card-text">{{project.summary|titlecase}}</p>
-  <p class="card-text">{{project.description|titlecase}}</p>
+  <p class="card-text">{{project.summary}}</p>
+  <p class="card-text">{{project.description}}</p>
   <p class="card-text"><strong>Email de contacto:</strong> {{user.email}}</p>
   <p class="card-text"><strong>Fecha de creación:</strong> {{project.createdAt|date:"dd/MM/y"}}</p>
   <img *ngIf="project.image != undefined" [src]="project.image" alt="project_image">

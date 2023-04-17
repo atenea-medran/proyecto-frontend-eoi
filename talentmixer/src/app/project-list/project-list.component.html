@@ -3,20 +3,20 @@
   <nav class="navbar col-10 navbar-light bg-light mb-2 d-flex justify-content-between align-items-center">
     <ul class="nav nav-pills">
       <li class="nav-item">
-        <a *ngIf="new" class="nav-link" href="javascript:void(0)" (click)="orderOlderFirst()">Ordenar por más antiguos</a>
-        <a *ngIf="!new" class="nav-link" href="javascript:void(0)" (click)="orderNewerFirst()">Ordenar por más recientes</a>
+        <a *ngIf="new" class="nav-link px-0 mx-3" href="javascript:void(0)" (click)="orderOlderFirst()">Ordenar por más antiguos</a>
+        <a *ngIf="!new" class="nav-link px-0 mx-3" href="javascript:void(0)" (click)="orderNewerFirst()">Ordenar por más recientes</a>
       </li>
       <form class="form-inline">
-        <input id="search" class="form-control mr-md-2" type="text" [(ngModel)]="search" name="search"
+        <input id="search" class="form-control mx-3 py-1" type="text" [(ngModel)]="search" name="search"
           placeholder="Buscar proyectos" aria-label="Search">
       </form>
     </ul>
-      <div *ngIf="globalService.logged==true; else noLogged" class="button-container">
+      <div *ngIf="globalService.logged==true; else noLogged" class="button-container py-1 mx-3">
         <a class="nav-link" [routerLink]="['/new']" [routerLinkActive]="['active']"><button id="new"
             class="btn btn-info">Nuevo proyecto</button></a>
       </div>
       <ng-template #noLogged>
-        <div id="disabled" class="button-container opacity-50" title="Inicie sesión para crear eventos.">
+        <div id="disabled" class="button-container opacity-50 my-2 mx-3" title="Inicie sesión para crear eventos.">
           <a class="nav-link disabled"><button id="new" class="btn btn-info">Nuevo proyecto</button></a>
         </div>
       </ng-template>
