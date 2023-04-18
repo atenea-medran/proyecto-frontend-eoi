@@ -1,40 +1,82 @@
 <div class="container">
   <div class="row">
-    <nav id="navbar" class="navbar navbar-expand-md gradient-custom justify-content-between">
-      <a [routerLink]="['/projects']" [routerLinkActive]="['active']"><img src="assets/logo.png" alt="Logo"></a>
-      <div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
-          aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="col-12">
+      <nav id="navbar" class="navbar navbar-expand-md gradient-custom justify-content-between">
+        <a [routerLink]="['/projects']" [routerLinkActive]="['active']"><img src="assets/logo.png" alt="Logo" class="img-fluid"></a>
+        <div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
+            aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarsExample04">
+            <ul class="navbar-nav">
+              <li *ngIf="globalService.logged" id="hola" class="nav-item mt-auto mb-auto mr-5">
+                ¡Hola, {{ globalService.user.firstName }}!
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/about']" [routerLinkActive]="['active']">About</a>
+              </li>
+              <li id="login" *ngIf="globalService.logged==false; else loggedWelcome" class="btn btn-light">
+                <a [routerLink]="['/login']" [routerLinkActive]="['active']">
+                  Iniciar sesión
+                </a>
+              </li>
+              <ng-template #loggedWelcome>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="example.com" id="dropdown01" data-bs-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Usuario</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" [routerLink]="['/user',globalService.user.id]"
+                      [routerLinkActive]="['active']">Cuenta</a>
+                    <a class="dropdown-item" (click)="logout()" [routerLink]="['/projects']"
+                      [routerLinkActive]="['active']">Cerrar sesión</a>
+                  </div>
+                </li>
+              </ng-template>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Expand at md</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarsExample04">
-          <ul class="navbar-nav">
-            <li *ngIf="globalService.logged" id="hola" class="nav-item mt-auto mb-auto mr-5">
-              ¡Hola, {{ globalService.user.firstName }}!
-            </li>
+          <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" [routerLink]="['/about']" [routerLinkActive]="['active']">About</a>
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li id="login" *ngIf="globalService.logged==false; else loggedWelcome" class="btn btn-light">
-              <a [routerLink]="['/login']" [routerLinkActive]="['active']">
-                Iniciar sesión
-              </a>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
             </li>
-            <ng-template #loggedWelcome>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="example.com" id="dropdown01" data-bs-toggle="dropdown" aria-haspopup="true"
-                  aria-expanded="false">Usuario</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                  <a class="dropdown-item" [routerLink]="['/user',globalService.user.id]"
-                    [routerLinkActive]="['active']">Cuenta</a>
-                  <a class="dropdown-item" (click)="logout()" [routerLink]="['/projects']"
-                    [routerLinkActive]="['active']">Cerrar sesión</a>
-                </div>
-              </li>
-            </ng-template>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
           </ul>
+          <form class="form-inline my-2 my-md-0">
+            <input class="form-control" type="text" placeholder="Search">
+          </form>
         </div>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <p>Este es un proyecto de muestra, no introduzcan contraseñas que usen en otros sitios.
+          Todos los días a las 2:00 de la madrugada se resetean las base de datos.
+        </p>
       </div>
-    </nav>
+    </div>
   </div>
 </div>

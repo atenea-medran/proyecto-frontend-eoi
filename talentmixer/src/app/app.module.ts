@@ -19,7 +19,6 @@ import { EditProjectComponent } from './edit-project/edit-project.component';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
-
 @NgModule({
   declarations: [
     AppComponent,
